@@ -1,28 +1,39 @@
 # Report 1 Page – FIT4012 Lab 1
 
-## 1. Mục tiêu
-Tóm tắt ngắn gọn mục tiêu của bài lab.
+##1. Mục tiêu
 
-## 2. Cách làm
-- Đọc hiểu chương trình entropy mẫu.
-- Bổ sung hàm tính redundancy.
-- Hoàn thiện hàm mod_inverse().
-- Chạy thử trên nhiều test case.
+Hiểu cách tính entropy của một chuỗi, từ đó suy ra redundancy, đồng thời nắm được cách tìm nghịch đảo modulo (modular inverse) bằng thuật toán phù hợp.
 
-## 3. Kết quả chính
-### 3.1 Entropy và redundancy
-| Input | Entropy | Redundancy | Nhận xét |
-|---|---:|---:|---|
-| aaaa |  |  |  |
-| abcd |  |  |  |
-| hello world |  |  |  |
+##2. Cách làm
+Đọc và phân tích chương trình mẫu tính entropy.
+Bổ sung hàm tính redundancy dựa trên entropy.
+Hoàn thiện hàm mod_inverse() (dùng thuật toán Euclid mở rộng).
+Chạy thử với nhiều test case để kiểm tra tính đúng đắn.
+##3. Kết quả chính
+3.1 Entropy và Redundancy
+Input	Entropy	Redundancy	Nhận xét
+aaaa	0	1	Chuỗi lặp hoàn toàn → không có thông tin mới
+abcd	2	0	Các ký tự xuất hiện đều → thông tin tối đa
+hello world	≈ 2.85	≈ 0.11	Phân bố ký tự không đều → entropy trung bình
 
-### 3.2 Modulo inverse
-| a | m | Kết quả mong đợi | Kết quả chương trình |
-|---:|---:|---|---|
-| 3 | 7 | 5 |  |
-| 10 | 17 | 12 |  |
-| 6 | 9 | Không tồn tại |  |
+Ghi chú:
 
-## 4. Kết luận
-Nêu ngắn gọn em học được gì từ bài lab, khó khăn lớn nhất là gì, và điều gì giúp em hiểu rõ hơn về entropy hoặc modulo inverse.
+Entropy tối đa với bảng chữ cái 4 ký tự là log
+2
+	​
+
+(4)=2
+Redundancy = 1 − (Entropy / Entropy tối đa)
+3.2 Modulo Inverse
+a	m	Kết quả mong đợi	Kết quả chương trình
+3	7	5	5
+10	17	12	12
+6	9	Không tồn tại	Không tồn tại
+
+Điều kiện tồn tại: gcd(a, m) = 1
+
+##4. Kết luận
+
+Qua bài lab, em hiểu rõ hơn về cách đo lượng thông tin bằng entropy và ý nghĩa của redundancy trong dữ liệu. Đồng thời, em nắm được cách tìm nghịch đảo modulo và điều kiện tồn tại của nó.
+
+Khó khăn lớn nhất là hiểu công thức entropy và cài đặt thuật toán Euclid mở rộng. Việc thử nhiều test case và so sánh kết quả giúp em hiểu sâu hơn về bản chất của hai khái niệm này.
